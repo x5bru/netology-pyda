@@ -50,7 +50,7 @@ class Rate:
                 return response[currency]
             elif self.format == 'value':
                 if self.diff:
-                    return self.make_diff(round(response[currency]['Value'] - response[currency]['Previous'],4))
+                    return self.make_diff(response[currency]['Value'] - response[currency]['Previous'])
                     
                 return response[currency]['Value']
         
@@ -58,9 +58,9 @@ class Rate:
         
     def make_diff(self, delta):
         if delta < 0:
-            return 'Курс снизился на ' + str(abs(delta))
+            return 'Курс снизился на ' + str(abs(round(delta,4)))
         elif delta > 0:
-            return 'Курс вырос на ' + str(delta)
+            return 'Курс вырос на ' + str(round(delta,4))
         
         return 'Курс остался прежним'
     
