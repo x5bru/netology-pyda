@@ -66,12 +66,12 @@ class Rate:
     
     def eur(self, diff_=False):
         """Возвращает курс евро на сегодня в формате self.format"""
-        selft.diff = diff_
+        self.diff = diff_
         return self.make_format('EUR')
     
     def usd(self, diff_=False):
         """Возвращает курс доллара на сегодня в формате self.format"""
-        selft.diff = diff_
+        self.diff = diff_
         return self.make_format('USD')
 		
 class Employee:
